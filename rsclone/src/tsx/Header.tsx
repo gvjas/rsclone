@@ -16,10 +16,9 @@ class Header extends React.Component {
         <div className="top-bar animate-dropdown" />
         <div className="main-header">
           <div className="container">
-            <h1 className="site-title">React Stock</h1>
+            <h2 className="site-title">React Stock</h2>
           </div>
         </div>
-        {/* <Nav /> */}
       </header>
     );
   }

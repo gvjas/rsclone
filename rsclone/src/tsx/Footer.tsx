@@ -1,16 +1,12 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable linebreak-style */
 // eslint-disable-next-line linebreak-style
 import * as React from 'react';
 import '../styles/Footer.scss';
-// import webpackLogo from '../images/favicon.png';
-
+// import { RSSLogo } from '../images/rs_school_js.svg';
+const RSSLogo = require('../images/rs_school_js.svg');
 // eslint-disable-next-line react/prefer-stateless-function
 class Footer extends React.Component {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     return (
       <footer id="footer" className="Footer">
@@ -19,12 +15,25 @@ class Footer extends React.Component {
             <div className="flex-container">
               <div className="flex-item">
                 <h1 className="footer-title">
-                  <a href="http://">&copy;gvjas 2020</a>
+                  &copy;
+                  <a
+                    href="https://github.com/gvjas"
+                    target="_blank"
+                  >
+                    gvjas 2020
+                  </a>
                 </h1>
-                <hr />
+                <a href="https://rs.school/js/" target="_blank">
+                  <img
+                    className="rSSLogo"
+                    src={RSSLogo}
+                    alt="RSSLogo"
+                  />
+                </a>
+                {/* <hr /> */}
                 <p>All rights reserved</p>
               </div>
-              <div className="flex-item">
+              {/* <div className="flex-item">
                 <div className="module-body">
                   <ul className="list-unstyled">
                     <li><a href="/sitemap/" data-tooltip="Карта сайта">Карта сайта</a></li>
@@ -39,20 +48,20 @@ class Footer extends React.Component {
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div className="flex-item">
+              </div> */}
+              {/* <div className="flex-item">
                 <div className="module-body">
                   <ul className="list-unstyled">
                     <li><a href="/contact/" data-tooltip="Вкладка1">Вкладка1</a></li>
                     <li><a href="/d">Вкладка2</a></li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
-        <div className="copyright-bar">
+        {/* <div className="copyright-bar">
           <div className="flex-container">
             <div className="flex-item">
               <ul className="flex-link" />
@@ -71,7 +80,7 @@ class Footer extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </footer>
     );

@@ -78,6 +78,8 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
 
+  externals: ["react-helmet"],
+
   // output: {
   //   path: paths.build,
   //   filename: '[name].bundle.js',

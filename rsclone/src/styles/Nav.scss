@@ -17,12 +17,16 @@
     background: greenyellow;
 }
 
+.selectStock {
+    display: flex;
+}
+
 .listCountries {
     width: 30%;
     background: orange;
     border: brown solid 1px;
     border-radius: 1rem;
-  }
+}
 
 [data=mySearch] {
     width: 100%;

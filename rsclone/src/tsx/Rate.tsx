@@ -9,6 +9,8 @@ import * as _ from 'lodash';
 import Calc from './Calc';
 import Nav from './Nav';
 
+const { createChart, CrosshairMode } = require('lightweight-charts');
+
 // eslint-disable-next-line react/prefer-stateless-function
 class Rate extends React.Component<any, any> {
   stock: string[];
@@ -17,7 +19,6 @@ class Rate extends React.Component<any, any> {
 
   result: any[];
 
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(props: any) {
     super(props);
     this.state = {
@@ -27,45 +28,43 @@ class Rate extends React.Component<any, any> {
       json0: '',
       json1: '',
       json2: '',
+      jsonGrath: '',
     };
-    if (localStorage.getItem('store') !== 'undefined') {
+    if (Array.isArray(JSON.parse(localStorage.getItem('store')))) {
       this.res = JSON.parse(localStorage.getItem('store'));
     } else {
       this.res = ['ABRD'];
     }
     this.result = [];
     this.stock = this.res;
-    // eslint-disable-next-line @typescript-eslint/no-implied-eval
     this.getRate();
   }
 
   getRate = () => {
     try {
-      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=0').then((res) => res.json())
-        .then((res) => this.setState({ json0: res.history.data }));
-      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=100').then((res) => res.json())
-        .then((res) => this.setState({ json1: res.history.data }));
-      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=200').then((res) => res.json())
-        .then((res) => {
-          this.setState({ json2: res.history.data });
+      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=0').then((res1) => res1.json())
+        .then((res1) => this.setState({ json0: res1.history.data }));
+      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=100').then((res1) => res1.json())
+        .then((res1) => this.setState({ json1: res1.history.data }));
+      fetch('https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json?start=200').then((res1) => res1.json())
+        .then((res1) => {
+          this.setState({ json2: res1.history.data });
           const result1 = {};
           const result2 = {};
-          this.result.map((item) => (
-          // eslint-disable-next-line array-callback-return
-            Object.values(item).map((element: any[]) => {
-              // console.log(element);
-              this.stock.forEach((el, k) => {
-                if (element[3] === el) {
-                  console.log(element);
-                  // eslint-disable-next-line prefer-destructuring
-                  result1[this.stock[k]] = element[11];
-                  result2[this.stock[k]] = ` | Наименование: ${element[2]}
-                  | Оборот: ${element[5]} | Изменение за день: ${((100 * (element[11] - element[6])) / element[11]).toFixed(2)}% | Цена закрытия: ${element[11]}`;
-                }
-              });
-            })));
-
           setTimeout(() => {
+            this.result.map((item) => (
+            // eslint-disable-next-line array-callback-return
+              Object.values(item).map((element: any[]) => {
+                // console.log(element);
+                this.stock.forEach((el, k) => {
+                  if (element[3] === el) {
+                    // eslint-disable-next-line prefer-destructuring
+                    result1[this.stock[k]] = element[11];
+                    result2[this.stock[k]] = ` | Наименование: ${element[2]}
+                    | Оборот: ${element[5]} | Изменение за день: ${((100 * (element[11] - element[6])) / element[11]).toFixed(2)}% | Цена закрытия: ${element[11]}`;
+                  }
+                });
+              })));
             if (!_.isEmpty(result1)) {
               this.setState({ date: this.result[0][0][1] });
               this.setState({ stockRate: result1 });
@@ -86,6 +85,81 @@ class Rate extends React.Component<any, any> {
     localStorage.setItem('store', JSON.stringify(this.res));
     // eslint-disable-next-line react/destructuring-assignment
     return this.getRate();
+  };
+
+  setGrath = (e) => {
+    const data = this.state.date;
+    function addDays(date, days) {
+      const dateInMs = date.setDate(date.getDate() - days);
+      return new Date(dateInMs);
+    }
+    const parseAddData = addDays(new Date(data), 300);
+    const yyyy = parseAddData.getFullYear();
+    const mm = parseAddData.getMonth();
+    const dd = parseAddData.getDate();
+    const prevData = `${yyyy}-${mm}-${dd}`;
+    const grath = document.querySelector('.grath');
+    grath.innerHTML = '';
+    const chart = createChart(grath, {
+      width: 600,
+      height: 300,
+      layout: {
+        backgroundColor: '#000000',
+        textColor: 'rgba(255, 255, 255, 0.9)',
+      },
+      grid: {
+        vertLines: {
+          color: 'rgba(197, 203, 206, 0.5)',
+        },
+        horzLines: {
+          color: 'rgba(197, 203, 206, 0.5)',
+        },
+      },
+      crosshair: {
+        mode: CrosshairMode.Normal,
+      },
+      rightPriceScale: {
+        borderColor: 'rgba(197, 203, 206, 0.8)',
+      },
+      timeScale: {
+        borderColor: 'rgba(197, 203, 206, 0.8)',
+      },
+    });
+
+    const candleSeries = chart.addCandlestickSeries({
+      // title: e.target.dataset.code,
+      upColor: 'rgba(255, 144, 0, 1)',
+      downColor: '#000',
+      borderDownColor: 'rgba(255, 144, 0, 1)',
+      borderUpColor: 'rgba(255, 144, 0, 1)',
+      wickDownColor: 'rgba(255, 144, 0, 1)',
+      wickUpColor: 'rgba(255, 144, 0, 1)',
+    });
+
+    chart.applyOptions({
+      watermark: {
+        color: 'rgba(255, 144, 0, 1)',
+        visible: true,
+        text: e.target.dataset.code,
+        fontSize: 24,
+        horzAlign: 'center',
+        vertAlign: 'top',
+      },
+    });
+    fetch(`https://iss.moex.com/iss/engines/stock/markets/shares/securities/${e.target.dataset.code}/candles.json?from=${prevData}&till=${data}&interval=24`)
+      .then((resl) => resl.json())
+      .then((resl) => {
+        this.setState({ jsonGrath: resl.candles.data });
+        const arrCandles = [];
+        this.state.jsonGrath.forEach((item) => {
+          arrCandles.push({
+            time: item[6].split(' ')[0], open: item[0], high: item[2], low: item[3], close: item[1],
+          });
+        });
+        candleSeries.setData(
+          arrCandles,
+        );
+      });
   };
 
   render() {
@@ -109,12 +183,13 @@ class Rate extends React.Component<any, any> {
                 {this.state.stockRate1[keyName]}
                 {' '}
                 <input onClick={this.removeRate} type="submit" data-name={keyName} value="Удалить" />
+                <input onClick={this.setGrath} type="submit" data-code={keyName} value="График" />
               </div>
             </div>
           ))}
         </div>
         <Calc rate={this.state.stockRate} />
-        <Nav res={this.res} result={this.result} getRate={this.getRate} />
+        <Nav res={this.res} result={this.result} getRate={this.getRate} setGrath={this.setGrath} />
       </div>
 
     );
