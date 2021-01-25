@@ -1,17 +1,37 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable linebreak-style */
 import * as React from 'react';
 import {
   BrowserRouter as Router, Route, Switch, Link,
 } from 'react-router-dom';
+// import { Helmet } from 'react-helmet';
+// import Helmet from 'react-helmet';
 import Widget from './Widget';
 import Header from './Header';
 import Footer from './Footer';
 import Rate from './Rate';
+// eslint-disable-next-line import/namespace
+// import Game from './Game';
 
 import '../styles/App.scss';
+// import { Helmet } from 'react-helmet';
+// import Game from '../script';
+// const Game = require('../script');
+
+// const { Helmet } = require('react-helmet');
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
+  // instance: HTMLDivElement;
+
+  // componentDidMount() {
+  //   const script = document.createElement('script');
+  //   script.src = './script.js';
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  //   this.instance.appendChild(script);
+  // }
+
   render() {
     function Widget1() {
       return <Widget />;
@@ -27,6 +47,7 @@ class App extends React.Component {
                 <ul>
                   <li><Link to="/">Главная</Link></li>
                   <li><Link to="/widget">Виджет</Link></li>
+                  {/* <li><Link to="/game">Игра</Link></li> */}
                 </ul>
               </nav>
             </div>
@@ -38,14 +59,25 @@ class App extends React.Component {
                 <Route exact path="/widget">
                   <Widget1 />
                 </Route>
+                {/* <Helmet> */}
+                {/* <Route exact path="/game"> */}
+                  {/* <Helmet> */}
+                  {/* <Game /> */}
+                    {/* { game() } */}
+                    {/* <script src="../script.js" /> */}
+                    {/* <script>{ init() }</script> */}
+                    {/* <script>try{script.load({ async: true });}catch(e){}</script> */}
+                  
+                  {/* <script src="../script.js" /> */}
+                    {/* <Game /> */}
+                  {/* {this.componentDidMount()} */}
+                  {/* <div ref={(el) => (this.instance = el)} /> */}
+                  {/* </Helmet> */}
+                {/* </Route> */}
+                {/* </Helmet> */}
               </Switch>
             </main>
           </div>
-          {/* <div className="container" id="cookie_info">
-            <div className="site-content">
-              <div className="well">Используются cookie</div>
-            </div>
-          </div> */}
           <Footer />
         </Router>
       </div>

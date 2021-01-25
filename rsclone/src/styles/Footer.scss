@@ -16,22 +16,30 @@
 
 .footer-title {
     color: honeydew;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 20px;
+    margin-top: 0.5rem;
 }
 
 .footer-title a {
     color: honeydew;
-    font-size: 2rem;
+    font-size: 20px;
     text-decoration: none;
 }
 
 .flex-item {
-    display: inline;
-    flex-direction: row;
-    width: 30rem;
+    display: flex;
+    align-content: center;
+    width: 60rem;
 }
 
 .rSSLogo {
     width: 10rem;
+    margin: 0 3rem;
+    margin-top: 0.5rem;
+}
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

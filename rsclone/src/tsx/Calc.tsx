@@ -45,17 +45,13 @@ class Calc extends React.Component<any, any> {
               ))}
             </select>
             <input type="submit" value="Рассчитать" />
-          </form>
-        </div>
-        <div>
-          <h4>Результат</h4>
-          <ul className="calc-res">
-            <li>
-              Количество акций
+            <span className="calc-res">
               {' '}
-              {this.state.result}
-            </li>
-          </ul>
+              Результат: Количество акций
+              {' '}
+              {this.state.result.toFixed(3)}
+            </span>
+          </form>
         </div>
       </div>
     );

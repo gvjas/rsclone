@@ -14,7 +14,7 @@ class Footer extends React.Component {
           <div className="container">
             <div className="flex-container">
               <div className="flex-item">
-                <h1 className="footer-title">
+                <span className="footer-title">
                   &copy;
                   <a
                     href="https://github.com/gvjas"
@@ -22,7 +22,7 @@ class Footer extends React.Component {
                   >
                     gvjas 2020
                   </a>
-                </h1>
+                </span>
                 <a href="https://rs.school/js/" target="_blank">
                   <img
                     className="rSSLogo"
@@ -30,7 +30,7 @@ class Footer extends React.Component {
                     alt="RSSLogo"
                   />
                 </a>
-                {/* <hr /> */}
+                <hr />
                 <p>All rights reserved</p>
               </div>
               {/* <div className="flex-item">

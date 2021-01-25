@@ -5,18 +5,13 @@ import '../styles/Header.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Header extends React.Component {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     return (
       <header>
         <div className="top-bar animate-dropdown" />
         <div className="main-header">
           <div className="container">
-            <h2 className="site-title">React Stock</h2>
+            <h2 className="site-title">Stock</h2>
           </div>
         </div>
       </header>

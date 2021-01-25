@@ -101,10 +101,10 @@ class Rate extends React.Component<any, any> {
     const grath = document.querySelector('.grath');
     grath.innerHTML = '';
     const chart = createChart(grath, {
-      width: 600,
-      height: 300,
+      // width: 600,
+      // height: 300,
       layout: {
-        backgroundColor: '#000000',
+        backgroundColor: '#003',
         textColor: 'rgba(255, 255, 255, 0.9)',
       },
       grid: {
@@ -128,12 +128,12 @@ class Rate extends React.Component<any, any> {
 
     const candleSeries = chart.addCandlestickSeries({
       // title: e.target.dataset.code,
-      upColor: 'rgba(255, 144, 0, 1)',
-      downColor: '#000',
-      borderDownColor: 'rgba(255, 144, 0, 1)',
-      borderUpColor: 'rgba(255, 144, 0, 1)',
-      wickDownColor: 'rgba(255, 144, 0, 1)',
-      wickUpColor: 'rgba(255, 144, 0, 1)',
+      // upColor: 'rgba(255, 144, 0, 1)',
+      // downColor: '#000',
+      // borderDownColor: 'rgba(255, 144, 0, 1)',
+      // borderUpColor: 'rgba(255, 144, 0, 1)',
+      // wickDownColor: 'rgba(255, 144, 0, 1)',
+      // wickUpColor: 'rgba(255, 144, 0, 1)',
     });
 
     chart.applyOptions({
@@ -190,6 +190,7 @@ class Rate extends React.Component<any, any> {
         </div>
         <Calc rate={this.state.stockRate} />
         <Nav res={this.res} result={this.result} getRate={this.getRate} setGrath={this.setGrath} />
+        {/* <div className="grath" /> */}
       </div>
 
     );

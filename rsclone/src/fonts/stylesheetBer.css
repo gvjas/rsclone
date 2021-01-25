@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Bernard MT Condensed';
+    src: url('BernardMT-Condensed.eot');
+    src: url('BernardMT-Condensed.eot?#iefix') format('embedded-opentype'),
+        url('BernardMT-Condensed.woff2') format('woff2'),
+        url('BernardMT-Condensed.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

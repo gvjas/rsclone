@@ -168,8 +168,8 @@ class Nav extends React.Component<any, any> {
                       {'% | Цена закрытия: '}
                       {element[11]}
                     </a>
-                    <input type="submit" onClick={this.setRate} name="count" data-x={element[3]} value="Добавить" />
-                    <input type="submit" onClick={this.props.setGrath} name="count" data-code={element[3]} value="График" />
+                    <input className="btnNav" type="submit" onClick={this.setRate} name="count" data-x={element[3]} value="В таблицу" />
+                    <input className="btnNav" type="submit" onClick={this.props.setGrath} name="count" data-code={element[3]} value="График" />
                   </li>
                 ))))}
             </ul>

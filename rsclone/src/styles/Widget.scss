@@ -28,4 +28,11 @@
 
 .widget {
     height: 60rem;
+    width: 120rem;
+}
+
+@media (max-width: 767px) {
+    .widget {
+        height: 120rem;
+    }
 }

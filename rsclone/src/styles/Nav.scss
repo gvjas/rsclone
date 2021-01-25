@@ -22,7 +22,7 @@
 }
 
 .listCountries {
-    width: 30%;
+    width: 60rem;
     background: orange;
     border: brown solid 1px;
     border-radius: 1rem;
@@ -30,7 +30,7 @@
 
 [data=mySearch] {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 15px;
     padding: 1rem;
     border: 1px solid #ddd;
     outline: none;
@@ -39,7 +39,7 @@
   /* Style the navigation menu */
 #myMenu {
     height: 30rem;
-    font-size: 1.5rem;
+    font-size: 15px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -48,6 +48,7 @@
 
 #myMenu li {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* Style the navigation links */
@@ -66,6 +67,17 @@
 .use-keyboard-input {
     margin-top: 1rem;
     height: 4rem;
+    width: 30rem;
     resize: none;
-  
-  }
+}
+
+.grath {
+    position: absolute;
+    width: 60rem;
+    height: 36rem;
+    margin-left: 63rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #0038;
+}
