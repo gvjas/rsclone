@@ -34,7 +34,6 @@ module.exports = {
     }),
 
     // Generates an HTML file from a template
-    // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
       title: 'Stocks',
       favicon: paths.src + '/images/favicon.png',
@@ -79,12 +78,4 @@ module.exports = {
   },
 
   externals: ["react-helmet"],
-
-  // output: {
-  //   path: paths.build,
-  //   filename: '[name].bundle.js',
-  //   publicPath: '/',
-  //   // filename: 'bundle.js',
-  //   // path: paths.resolve(__dirname, 'dist'),
-  // },
 }

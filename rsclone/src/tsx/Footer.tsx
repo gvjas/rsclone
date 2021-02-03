@@ -33,55 +33,9 @@ class Footer extends React.Component {
                 <hr />
                 <p>All rights reserved</p>
               </div>
-              {/* <div className="flex-item">
-                <div className="module-body">
-                  <ul className="list-unstyled">
-                    <li><a href="/sitemap/" data-tooltip="Карта сайта">Карта сайта</a></li>
-                    <li>
-                      <a
-                        href="/sitemaps.xml"
-                        target="_blank"
-                        data-tooltip="Example"
-                      >
-                        Example
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
-              {/* <div className="flex-item">
-                <div className="module-body">
-                  <ul className="list-unstyled">
-                    <li><a href="/contact/" data-tooltip="Вкладка1">Вкладка1</a></li>
-                    <li><a href="/d">Вкладка2</a></li>
-                  </ul>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
-
-        {/* <div className="copyright-bar">
-          <div className="flex-container">
-            <div className="flex-item">
-              <ul className="flex-link" />
-            </div>
-            <div className="flex-item">
-              <div className="clearfix payment-methods">
-                <ul>
-                  <img
-                    // src={webpackLogo}
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    data-original-title="www.webmoney.ru"
-                    alt=""
-                  />
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
       </footer>
     );
   }

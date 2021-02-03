@@ -4,24 +4,8 @@
     border: 0.1rem solid beige;
     border-top: 0.1rem solid burlywood;
     background: cornsilk;
-    // margin: 2rem;
     width: 120rem;
 }
-
-.block div {
-    // margin-bottom: 2rem;
-}
-
-// .block flex-item {
-//     display: flex;
-//     flex-direction: row;
-// }
-// .grath {
-//     // position: absolute;
-//     width: 60rem;
-//     height: 20rem;
-//     // z-index: 1;
-// }
 
 .block .stock-in, .block .stock-out {
     font-size: 15px;
@@ -39,7 +23,6 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    // align-content: stretch;
     width: 100%;
     align-items: flex-start;
 }

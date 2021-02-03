@@ -190,7 +190,6 @@ class Rate extends React.Component<any, any> {
         </div>
         <Calc rate={this.state.stockRate} />
         <Nav res={this.res} result={this.result} getRate={this.getRate} setGrath={this.setGrath} />
-        {/* <div className="grath" /> */}
       </div>
 
     );
