@@ -1,0 +1,37 @@
+header {
+    background-color: rgba(aqua, 0.5);
+}
+
+.top-bar {
+    padding: 0.1rem;
+    border-bottom: 0.04rem solid green;
+    min-height: 0.1rem;
+}
+
+.main-header {
+    padding: 0.1rem 0 0.1rem;
+}
+
+.site-title {
+    color: honeydew;
+    margin-left: 3rem;
+}
+
+.header-nav {
+    background-color: greenyellow;
+}
+
+.header-nav li {
+    display: inline-block;
+    padding: 1.5rem 2.5rem 1.5rem;
+}
+
+.header-nav li a, .header-nav li a:visited {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.header-nav li a:hover { 
+    background: greenyellow;
+}
